@@ -693,8 +693,10 @@ class Entity extends Position{
 				
 				$pk = new PlayerEquipmentPacket;
 				$pk->eid = $this->eid;
-				$pk->item = $this->player->getSlot($this->player->slot)->getID();
-				$pk->meta = $this->player->getSlot($this->player->slot)->getMetadata();
+				if($pk instanceof PlayerEquipmentPacket){
+					$pk->item = $this->player->getSlot($this->player->slot)->getID();
+					$pk->meta = $this->player->getSlot($this->player->slot)->getMetadata();
+				}
 				$pk->slot = 0;
 				$player->dataPacket($pk);
 				$this->player->sendArmor($player);
