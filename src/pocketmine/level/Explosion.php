@@ -205,9 +205,10 @@ class Explosion{
 					$this->level->dropItem($block->add(0.5, 0.5, 0.5), Item::get(...$drop));
 				}
 			}
-			$this->level->setBlockIdAt($block->x, $block->y, $block->z, 0);
-			$send[] = new Vector3($block->x - $source->x, $block->y - $source->y, $block->z - $source->z);
-		}
+			if($block->getId() != 95){ // Invisible Bedrock
+				$this->level->setBlockIdAt($block->x, $block->y, $block->z, 0);
+				$send[] = new Vector3($block->x - $source->x, $block->y - $source->y, $block->z - $source->z);
+		}	}
 		$pk = new ExplodePacket();
 		$pk->x = $this->source->x;
 		$pk->y = $this->source->y;
