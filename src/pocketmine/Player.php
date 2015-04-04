@@ -1080,7 +1080,7 @@ class Player extends Human implements CommandSender, InventoryHolder, IPlayer{
 			$diffZ = $this->z - $this->newPosition->z;
 			$diffY = $this->y - $this->newPosition->y;
 			if($diffY >= -0.5 or $diffY <= 0.5){
-                $diffY = 0;
+               			$diffY = 0;
 			}
 
 			$diff = $diffX ** 2 + $diffY ** 2 + $diffZ ** 2;
